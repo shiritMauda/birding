@@ -20,6 +20,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AddBirdComponent } from './add-bird/add-bird.component';
 import { AddSpotComponent } from './add-spot/add-spot.component';
 import { AddAreaComponent } from './add-area/add-area.component';
+import { SpotComponent } from './spot/spot.component';
+import { SpotListComponent } from './spot-list/spot-list.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { AddAreaComponent } from './add-area/add-area.component';
     AddBirdComponent,
     AddSpotComponent,
     AddAreaComponent,
+    SpotComponent,
+    SpotListComponent,
   ],
   imports: [
     BrowserModule,

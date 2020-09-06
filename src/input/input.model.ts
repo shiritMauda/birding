@@ -1,6 +1,8 @@
 import { ValidatorFn } from '@angular/forms';
+import { observable, Observable } from 'rxjs';
+import { IArea } from 'src/models/area.model';
 
-export type TInput = 'password' | 'text' | 'email' | 'date' | 'buttonGroup' | 'select';
+export type TInput = 'password' | 'text' | 'email' | 'date' | 'buttonGroup' | 'select' | 'file';
 export interface IListItem {
     label: any;
     value: any;
@@ -15,4 +17,6 @@ export interface IInputConfig {
     value?: any;
     validators?: ValidatorFn[];
     list?: IListItem[];
+    list$?: Observable<IArea[]>;
+
 }

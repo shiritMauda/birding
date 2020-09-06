@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class UserService {
   baseApi = 'http://localhost:54867/api/';
   url: string;
+  _email: string;
   // tslint:disable-next-line: variable-name
   private _userIn$ = new ReplaySubject<IUser>(1);
   public get userIn$(): Observable<IUser> {
@@ -20,6 +21,13 @@ export class UserService {
   public get isConnected$(): Observable<boolean> {
     return this._userIn$.pipe(map(u => !!u));
   }
+  public get isConnected(): boolean {
+    return !!this._email;
+  }
+  public get email(): string {
+    return this._email;
+  }
+
 
   navToLogin() {
     const url = 'login';
@@ -28,6 +36,7 @@ export class UserService {
   setUser(user: IUser) {
 
     this._userIn$.next(user);
+    this._email = user.email;
     /* כניסה למערכת */
     const url = 'home/birdList';
     this.router.navigate([url]);

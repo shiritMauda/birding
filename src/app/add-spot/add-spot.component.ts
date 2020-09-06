@@ -52,13 +52,12 @@ export class AddSpotComponent implements OnInit {
     // Call the Http Request
     requestToServer.subscribe(res => {
       console.log('Areas from server', res);
-      this._areas$.next(res);
-
+      this.fs.setArea(res);
     });
   }
   add() {
 
-    const area_idx = this.area;
+    const area_idx = this.rForm.controls.area.value;
     const bird_idx = this.route.snapshot.paramMap.get('id');
     const spot_datex = this.rForm.controls.spot_date.value;
     const newSpot = {

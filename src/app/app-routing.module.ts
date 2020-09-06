@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { AddBirdComponent } from './add-bird/add-bird.component';
 import { AddAreaComponent } from './add-area/add-area.component';
 import { AddSpotComponent } from './add-spot/add-spot.component';
+import { SpotListComponent } from './spot-list/spot-list.component';
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
           { path: 'addBird', component: AddBirdComponent },
           { path: 'addArea', component: AddAreaComponent },
           { path: 'addSpot', component: AddSpotComponent },
+          { path: 'spotList', component: SpotListComponent }
 ]
   }
 ];

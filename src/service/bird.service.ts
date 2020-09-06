@@ -4,6 +4,7 @@ import { IBird } from 'src/models/bird.model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { IArea } from 'src/models/area.model';
+import { ISpot } from 'src/models/spot.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class BirdService {
   getListOfbirds(): Observable<IBird[]> {
     this.url = this.baseApi + 'bird';
     return this.http.get<IBird[]>(this.url);
+  }
+  getListOfspots(email): Observable<ISpot[]> {
+    this.url = this.baseApi + 'spotList';
+    return this.http.post<ISpot[]>(this.url, email);
   }
   addBird(bird): Observable<number> {
     this.url = this.baseApi + 'bird';
@@ -35,7 +40,7 @@ export class BirdService {
   }
 
   getAllAreas(): Observable<IArea[]> {
-      this.url = this.baseApi + 'area';
-      return this.http.get<IArea[]>(this.url);
+    this.url = this.baseApi + 'area';
+    return this.http.get<IArea[]>(this.url);
   }
 }

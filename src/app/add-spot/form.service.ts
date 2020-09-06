@@ -1,12 +1,14 @@
 import { Injectable, Input } from '@angular/core';
 import { IInputConfig, IListItem } from 'src/input/input.model';
 import { Validators, FormBuilder } from '@angular/forms';
+import { ReplaySubject } from 'rxjs';
+import { IArea } from 'src/models/area.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormService {
-  @Input() selectList: IListItem[];
+  selectList = new ReplaySubject<IArea[]>(1);
   inputs: IInputConfig[] = [
 
     {
@@ -22,17 +24,17 @@ export class FormService {
       value: '',
       type: 'date',
       error: 'שדה חובה',
-      validators: [Validators.required]
+      validators: []
     },
-           {
-            formControlName: 'area',
-            label: 'איזור',
-            value: '',
-            type: 'text',
-            error: 'שדה חובה',
-            validators: [Validators.required],
-            list: this.selectList
-          }
+    {
+      formControlName: 'area',
+      label: 'איזור',
+      value: '',
+      type: 'select',
+      error: 'שדה חובה',
+      validators: [],
+      list$: this.selectList.asObservable()
+    }
 
   ];
   constructor(private fb: FormBuilder) { }
@@ -43,5 +45,9 @@ export class FormService {
       form.addControl(i.formControlName, control);
     });
     return form;
+  }
+
+  setArea(list: any[]) {
+    this.selectList.next(list);
   }
 }

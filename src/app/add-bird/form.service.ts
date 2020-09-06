@@ -20,7 +20,7 @@ export class FormService {
       formControlName: 'img',
       label: 'תמונה',
       value: '',
-      type: 'text',
+      type: 'file',
       error: 'שדה חובה',
       validators: [Validators.required]
     }

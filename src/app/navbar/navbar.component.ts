@@ -16,6 +16,7 @@ export class NavbarComponent {
 
   navs: INav[] = [
     { path: 'birdList', label: 'כל הציפורים' },
+    { path: 'spotList', label: 'התצפיות שלי' },
 
 
   ];

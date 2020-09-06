@@ -1,8 +1,9 @@
 <ng-container [ngSwitch]="config.type">
     <div class="control" *ngSwitchCase="'select'">
         <label>{{config.label}}</label>
-        <select >
+        <select  [formControl]="control">
             <option *ngFor="let a of config.list" [value]="a.value">{{a.label}}</option>
+            <option *ngFor="let a of config.list$|async" [value]="a.id">{{a.name}}</option>
           </select>
 
     </div>
