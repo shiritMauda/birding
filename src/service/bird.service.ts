@@ -5,33 +5,33 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { IArea } from 'src/models/area.model';
 import { ISpot } from 'src/models/spot.model';
-
+import { environment } from '../environments/environment';
+const BASEAPI = environment.api;
 @Injectable({
   providedIn: 'root'
 })
 export class BirdService {
-  baseApi = 'http://localhost:54867/api/';
   url: string;
   constructor(private http: HttpClient, private router: Router) { }
 
   getListOfbirds(): Observable<IBird[]> {
-    this.url = this.baseApi + 'bird';
+    this.url = BASEAPI + 'bird';
     return this.http.get<IBird[]>(this.url);
   }
-  getListOfspots(email): Observable<ISpot[]> {
-    this.url = this.baseApi + 'spotList';
-    return this.http.post<ISpot[]>(this.url, email);
+  getListOfspots(email: string): Observable<ISpot[]> {
+    const url = BASEAPI + 'spotList?email=' + email;
+    return this.http.get<ISpot[]>(url);
   }
   addBird(bird): Observable<number> {
-    this.url = this.baseApi + 'bird';
+    this.url = BASEAPI + 'bird';
     return this.http.post<number>(this.url, bird);
   }
   addSpot(spot): Observable<number> {
-    this.url = this.baseApi + 'spot';
+    this.url = BASEAPI + 'spot';
     return this.http.post<number>(this.url, spot);
   }
   addArea(area): Observable<number> {
-    this.url = this.baseApi + 'area';
+    this.url = BASEAPI + 'area';
     return this.http.post<number>(this.url, area);
   }
   navToBirdList() {
@@ -40,7 +40,7 @@ export class BirdService {
   }
 
   getAllAreas(): Observable<IArea[]> {
-    this.url = this.baseApi + 'area';
+    this.url = BASEAPI + 'area';
     return this.http.get<IArea[]>(this.url);
   }
 }

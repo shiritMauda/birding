@@ -10,6 +10,7 @@
     
 }
  .control input
+ 
 {
     padding:20px, 0;
  width: 80%;
@@ -22,6 +23,7 @@
 }
 
 .control label
+
 {
     width: 100%;
     position: absolute;
@@ -32,6 +34,7 @@
     pointer-events: none;
 }
  input:focus ~ label
+ 
 {
     top:-13px;
   

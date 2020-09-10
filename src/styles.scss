@@ -1,3 +1,5 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 /* You can add global styles to this file, and also import other style files */
 body{
     font-family: Heebo;
@@ -62,3 +64,6 @@ body{
     transition: 0.5s;
     background-color: rgb(168, 162, 162);
  }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -22,10 +22,7 @@ export class SpotListComponent implements OnInit {
 
   getData() {
 
-    const requestToServer = this.service.getListOfspots(this.user.email);
-
-    // Call the Http Request
-    requestToServer.subscribe(res => {
+    this.service.getListOfspots(this.user.email).subscribe(res => {
       console.log('spots from server', res);
       this._spots$.next(res);
 

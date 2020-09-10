@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputComponent } from './input.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatInputModule } from '@angular/material';
 
 
 @NgModule({
@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [InputComponent],
   imports: [
     CommonModule,
+    MatInputModule,
     ReactiveFormsModule,
   ]
 })

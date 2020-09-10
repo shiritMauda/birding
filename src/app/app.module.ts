@@ -22,6 +22,7 @@ import { AddSpotComponent } from './add-spot/add-spot.component';
 import { AddAreaComponent } from './add-area/add-area.component';
 import { SpotComponent } from './spot/spot.component';
 import { SpotListComponent } from './spot-list/spot-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { SpotListComponent } from './spot-list/spot-list.component';
     ReactiveFormsModule,
     InputModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

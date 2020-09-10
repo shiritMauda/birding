@@ -17,10 +17,19 @@
     
 
     <div class="control" *ngSwitchDefault>
-        <!-- <div class="control-title">{{config.label}}</div> -->
+<!--          <div class="control-title">{{config.label}}</div> 
         <input class="inputText" [type]="config.type" [value]="config.value||''" [formControl]="control">
         <label class="floating-label">{{config.label}}</label>
-        <div class="error" *ngIf(valid)>{{config.error}}</div>
+        <div class="error" *ngIf(valid)>{{config.error}}</div> -->
+
+        <mat-form-field class="example-full-width">
+            <mat-label>{{config.label}}</mat-label>
+            <input matInput [type]="config.type" [placeholder]="config.placeholder" [value]="config.value"
+                [formControl]="control">
+            <!-- <mat-error *ngIf="control.hasError('required')">
+               {{error.required}}
+              </mat-error>   -->
+        </mat-form-field>
     </div>
 
 </ng-container>
